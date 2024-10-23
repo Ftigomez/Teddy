@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot con Fondo Animado</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f9;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .chatbot-container {
+      background-color: #f0e5ff; /* Morado claro */
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .chatbot-header {
+      background-color: #d6a8ff; /* Morado más intenso */
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    .chatbot-header h2 {
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    .chatbot-header p {
+      font-size: 16px;
+      opacity: 0.8;
+    }
+
+    /* Estilos para las pelotas del fondo */
+    .ball {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      animation: move 10s infinite ease-in-out;
+    }
+
+    /* Diferentes tamaños y colores para las pelotas */
+    .ball:nth-child(1) { width: 60px; height: 60px; top: 10%; left: 20%; background-color: rgba(255, 69, 0, 0.8); animation-duration: 12s; }
+    .ball:nth-child(2) { width: 40px; height: 40px; top: 60%; left: 10%; background-color: rgba(30, 144, 255, 0.8); animation-duration: 15s; }
+    .ball:nth-child(3) { width: 80px; height: 80px; top: 50%; left: 70%; background-color: rgba(34, 139, 34, 0.8); animation-duration: 9s; }
+    .ball:nth-child(4) { width: 50px; height: 50px; top: 20%; left: 80%; background-color: rgba(255, 20, 147, 0.8); animation-duration: 11s; }
+    .ball:nth-child(5) { width: 70px; height: 70px; top: 80%; left: 40%; background-color: rgba(75, 0, 130, 0.8); animation-duration: 8s; }
+    .ball:nth-child(6) { width: 50px; height: 50px; top: 30%; left: 60%; background-color: rgba(255, 165, 0, 0.8); animation-duration: 14s; }
+    .ball:nth-child(7) { width: 60px; height: 60px; top: 15%; left: 50%; background-color: rgba(173, 216, 230, 0.8); animation-duration: 10s; }
+    .ball:nth-child(8) { width: 30px; height: 30px; top: 65%; left: 75%; background-color: rgba(144, 238, 144, 0.8); animation-duration: 13s; }
+    .ball:nth-child(9) { width: 90px; height: 90px; top: 85%; left: 5%; background-color: rgba(255, 105, 180, 0.8); animation-duration: 16s; }
+    .ball:nth-child(10) { width: 40px; height: 40px; top: 5%; left: 85%; background-color: rgba(65, 105, 225, 0.8); animation-duration: 18s; }
+
+    @keyframes move {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(100px, 200px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @media (max-width: 600px) {
+      .chatbot-container {
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Pelotas en el fondo -->
+  <div class="ball"></div>
+  <div class="ball"></div>
+  <div class="ball"></div>
+  <div class="ball"></div>
+  <div class="ball"></div>
+  <div class="ball"></div>
+  <div class="ball"></div>
+  <div class="ball"></div>
+  <div class="ball"></div>
+  <div class="ball"></div>
+
+  <!-- Contenedor del chatbot -->
+  <div class="chatbot-container">
+    <div class="chatbot-header">
+      <h2>TeddyAI</h2>
+      <p>¡Bienvenido! ¿Listo para divertirte?</p>
+    </div>
+    <div class="chatbot-widget">
+      <script type="text/javascript">
+        (function(d, t) {
+            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            v.onload = function() {
+              window.voiceflow.chat.load({
+                verify: { projectID: '670d3e6f83e030662a4b9270' },
+                url: 'https://general-runtime.voiceflow.com',
+                versionID: 'production'
+              });
+            }
+            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+        })(document, 'script');
+      </script>
+    </div>
+  </div>
+</body>
+</html>
